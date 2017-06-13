@@ -1,0 +1,57 @@
+#app {
+  position: relative;
+  float: left;
+  margin: 50px;
+  width: 100%
+}
+
+.child-node {
+  margin-left: 15px;
+}
+
+.node input {
+  margin-right: 10px;
+  margin-bottom: 5px
+}
+
+.node span {
+  font-size: 14px;
+  font-family: sans-serif;
+
+}
+.hide {
+  display: none;
+}
+
+.node .arrow{
+  margin-right: 5px;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.controls {
+  position: relative;
+  float: left;
+}
+
+.controls button {
+  width: 140px;
+  height: 25px;
+  margin-right: 10px;
+}
