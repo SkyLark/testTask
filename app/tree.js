@@ -25,6 +25,26 @@ Tree.prototype = (function(){
     console.log(' EVENT - Check Box was check/unchecked !!!!!')
   });
 
+  function buildGetDataControls(){
+
+    const container = document.createElement('div')
+    container.className = 'getdata'
+    const getData = document.createElement('button')
+    getData.innerText = 'Get Node Data'
+    const getDataInput = document.createElement('input')
+    getDataInput.type = 'text'
+    getDataInput.placeholder = 'Enter the Node Id'
+
+    container.appendChild(getDataInput)
+    container.appendChild(getData)
+
+    getData.onclick = function(){
+      this.getData(parseInt(getDataInput.value))
+    }.bind(this)
+
+    return container
+  }
+
   // DOM builder function
   function initControlButtons () {
     const container = document.createElement('div')
@@ -68,6 +88,7 @@ Tree.prototype = (function(){
     container.appendChild(reset)
     container.appendChild(updateButton)
     container.appendChild(updateNode)
+    container.appendChild(buildGetDataControls.call(this))
 
     return container
 
@@ -128,8 +149,9 @@ Tree.prototype = (function(){
         getData: function (id) {
           if(!id) {
             console.warn('Please provide Node Id and Data')
-            return 
+            return
           }
+          node = null
           let item = findNodeById(this.nodes, id)
           if(!item){
             console.warn('Node not found !!!!')

@@ -48,10 +48,22 @@ i {
 .controls {
   position: relative;
   float: left;
+  width: 450px;
 }
 
 .controls button {
   width: 140px;
   height: 25px;
   margin-right: 10px;
+}
+
+
+.getdata{
+  position: relative;
+  float: left;
+  margin-top: 10px;
+}
+
+.getdata input {
+  margin-right: 18px;
 }
