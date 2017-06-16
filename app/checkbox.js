@@ -13,15 +13,8 @@ class Checkbox {
     arrow.className = 'arrow down'
     // Toggle Open, Close for nested tree nodes
     arrow.onclick = function(e){
-      var childnodes = $(e.target.parentNode).children().filter('div')
-      if($(arrow).hasClass('down')){
-        $(arrow).removeClass('down').addClass('up')
-        $(childnodes).addClass('hide')
-      }else{
-          $(arrow).removeClass('up').addClass('down')
-          $(childnodes).removeClass('hide')
-      }
-    }
+      this.handleArrowEvent(e, arrow)
+    }.bind(this)
 
     checkbox.type = 'checkbox'
     checkbox.checked = node.isChecked
@@ -38,6 +31,17 @@ class Checkbox {
 
     return container
   }
+  handleArrowEvent (e, arrow) {
+    var childnodes = $(e.target.parentNode).children().filter('div')
+    if($(arrow).hasClass('down')){
+      $(arrow).removeClass('down').addClass('up')
+      $(childnodes).addClass('hide')
+    }else{
+        $(arrow).removeClass('up').addClass('down')
+        $(childnodes).removeClass('hide')
+    }
+  }
+
   create (node, parent) {
     if (parent) {
       const className =  'cont-class_'+parent.id

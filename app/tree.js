@@ -3,7 +3,6 @@ import events from './events'
 
 const checkbox = new Checkbox
 
-
 function Tree (nodes) {
   this.nodes = nodes
 }
@@ -129,7 +128,7 @@ Tree.prototype = (function(){
         getData: function (id) {
           if(!id) {
             console.warn('Please provide Node Id and Data')
-            return
+            return 
           }
           let item = findNodeById(this.nodes, id)
           if(!item){
@@ -138,6 +137,8 @@ Tree.prototype = (function(){
             console.log('ID: ' + item.id + ' ' + 'Name: ' + item.name + ' ' + 'Checked: ' + item.isChecked)
           }
           events.publish('GetData');
+
+          return item
         },
         subscribe: function(name, fn) {
           events.subscribe(name, fn);
